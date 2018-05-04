@@ -1,6 +1,7 @@
-# docker-prokka
-Lightweight Docker image running Prokka
+# Docker Sciluigi Tools
 
-[![Docker Repository on Quay](https://quay.io/repository/fhcrc-microbiome/prokka/status "Docker Repository on Quay")](https://quay.io/repository/fhcrc-microbiome/prokka)
+Set of Docker images containing tools made by others, including a simple wrapper to enable sciluigi to wrap around these tools.
 
-Based on ummidock/prokka from [https://github.com/B-UMMI/docker-images](https://github.com/B-UMMI/docker-images), this is a very light layer on top that merely adds a wrapper to make it easier to run as a command within a larger sciluigi workflow.
+Current tools:
+
+  * Prokka: [![Docker Repository on Quay](https://quay.io/repository/fhcrc-microbiome/prokka/status "Docker Repository on Quay")](https://quay.io/repository/fhcrc-microbiome/prokka). Based on  ummidock/prokka from [https://github.com/B-UMMI/docker-images](https://github.com/B-UMMI/docker-images).
