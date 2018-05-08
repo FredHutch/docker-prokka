@@ -8,4 +8,4 @@ RUN apt update && \
 RUN pip3 install bucket_command_wrapper==0.2.0
 
 # Install fastqp
-RUN pip install fastqp
+RUN pip install fastqp matplotlib==2.0.0
