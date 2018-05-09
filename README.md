@@ -6,7 +6,7 @@ Current tools:
 
   * Prokka: [![Docker Repository on Quay](https://quay.io/repository/fhcrc-microbiome/prokka/status "Docker Repository on Quay")](https://quay.io/repository/fhcrc-microbiome/prokka) Based on ummidock/prokka from [https://github.com/B-UMMI/docker-images](https://github.com/B-UMMI/docker-images).
 
-  * CheckM [![Docker Repository on Quay](https://quay.io/repository/fhcrc-microbiome/checkm/status "Docker Repository on Quay")](https://quay.io/repository/fhcrc-microbiome/checkm) Based on syao/checkm in dockerhub.
+  * CheckM [![Docker Repository on Quay](https://quay.io/repository/fhcrc-microbiome/checkm/status "Docker Repository on Quay")](https://quay.io/repository/fhcrc-microbiome/checkm) Based on the pplacer image in this repo.
 
   * Finch-rs [![Docker Repository on Quay](https://quay.io/repository/fhcrc-microbiome/finch-rs/status "Docker Repository on Quay")](https://quay.io/repository/fhcrc-microbiome/finch-rs) See [https://github.com/onecodex/finch-rs](https://github.com/onecodex/finch-rs) for details.
 
