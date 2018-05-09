@@ -1,4 +1,4 @@
-FROM syao/checkm:v1.0
+FROM quay.io/fhcrc-microbiome/pplacer:pplacer-v1.1.alpha19--0
 
-RUN apt-get update && apt-get install -y python3-pip
-RUN pip3 install bucket_command_wrapper==0.2.0
+RUN pip install -y checkm-genome && \
+    checkm
