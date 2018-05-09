@@ -4,7 +4,7 @@ FROM ubuntu:trusty
 RUN apt-get -y update && \
     apt-get -y install camlp4-extra gawk libgsl0-dev libsqlite3-dev \
     libz-dev m4 wget make ocaml patch build-essential \
-    git pkg-config unzip python-pip python-dev sqlite3
+    git pkg-config unzip python-pip python-dev sqlite3 libpq-dev
 
 # Make needed folders
 RUN mkdir /fh && \
@@ -41,3 +41,6 @@ RUN cd /pplacer/src/pplacer/scripts && \
     python setup.py install
 
 WORKDIR /pplacer
+
+# Make sure pplacer works
+RUN pplacer --help
