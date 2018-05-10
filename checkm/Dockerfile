@@ -1,6 +1,6 @@
 FROM quay.io/fhcrc-microbiome/pplacer:pplacer-v1.1.alpha19--0
 
-RUN pip install checkm-genome
+RUN pip install checkm-genome==1.0.11
 
 # Install HMMer
 RUN mkdir /usr/bin/hmmer && cd /usr/bin/hmmer && \
