@@ -14,6 +14,8 @@ Current tools:
 
   * fastqp [![Docker Repository on Quay](https://quay.io/repository/fhcrc-microbiome/fastqp/status "Docker Repository on Quay")](https://quay.io/repository/fhcrc-microbiome/fastqp) See [https://github.com/mdshw5/fastqp](https://github.com/mdshw5/fastqp) for details.
 
+  * python [![Docker Repository on Quay](https://quay.io/repository/fhcrc-microbiome/python/status "Docker Repository on Quay")](https://quay.io/repository/fhcrc-microbiome/python)
+
 
 ### Triggering builds on Quay
 
