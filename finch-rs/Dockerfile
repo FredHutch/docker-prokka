@@ -22,3 +22,6 @@ RUN mkdir /bin/finch-rs && \
     mv finch-linux64-v0.1.5/finch /usr/local/bin/ && \
     rm finch-linux64-v0.1.5.tar.gz && \
     finch -h
+
+# Add the run script to the PATH
+ADD run_finch.py /usr/local/bin/
