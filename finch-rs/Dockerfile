@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 # Install wget and pip3
 RUN apt update && \
-    apt install -y wget python3-pip
+    apt install -y wget python3-pip awscli
 
 # Install the bucket command wrapper
 RUN pip3 install bucket_command_wrapper==0.2.0
