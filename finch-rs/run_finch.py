@@ -90,25 +90,6 @@ def set_up_sra_cache_folder(temp_folder):
     assert os.path.exists("/root/ncbi/public/sra")
 
 
-def interleave_fastq(fwd_fp, rev_fp, comb_fp):
-    fwd = open(fwd_fp, "rt")
-    rev = open(rev_fp, "rt")
-    nreads = 0
-    with open(comb_fp, "wt") as fo:
-        while True:
-            fwd_read = [fwd.readline() for ix in range(4)]
-            rev_read = [rev.readline() for ix in range(4)]
-            if any([l == '' for l in fwd_read]):
-                break
-            assert any([l == '' for l in rev_read]) is False
-            nreads += 1
-            fo.write(''.join(fwd_read))
-            fo.write(''.join(rev_read))
-    fwd.close()
-    rev.close()
-    logging.info("Interleaved {:,} pairs of reads".format(nreads))
-
-
 def get_sra(accession, temp_folder):
     """Get the FASTQ for an SRA accession."""
     logging.info("Downloading {} from SRA".format(accession))
@@ -137,11 +118,25 @@ def get_sra(accession, temp_folder):
 
     # Return all of the files that were downloaded
     logging.info("Done fetching " + accession)
-    return [
-        os.path.join(temp_folder, fp)
-        for fp in os.listdir(temp_folder)
-        if fp.startswith(accession) and fp.endswith(".fastq")
-    ]
+    
+    # Combine all of the files into a single file
+    local_fastq_fp = os.path.join(temp_folder, accession)
+    logging.info("Concatenating all downloaded files into a single FASTQ ({})".format(
+        local_fastq_fp
+    ))
+
+    run_cmds(
+        [
+            "cat"
+        ] + [
+            os.path.join(temp_folder, fp)
+            for fp in os.listdir(temp_folder)
+            if fp.startswith(accession) and fp.endswith(".fastq")
+        ], 
+        stdout=local_fastq_fp
+    )
+
+    return local_fastq_fp
 
 
 if __name__ == "__main__":
@@ -205,7 +200,7 @@ if __name__ == "__main__":
 
     # Download the SRA data
     try:
-        local_fp_list = get_sra(args.accession, temp_folder)
+        local_fastq_fp = get_sra(args.accession, temp_folder)
     except:
         exit_and_clean_up(temp_folder)
 
@@ -219,7 +214,7 @@ if __name__ == "__main__":
             sketch_fp,
             "-n",
             str(args.sketch_size)            
-        ] + local_fp_list)
+        ] + [local_fastq_fp])
         assert os.path.exists(sketch_fp)
     except:
         exit_and_clean_up(temp_folder)
